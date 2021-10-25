@@ -15,6 +15,12 @@
 #include "Shader.h"
 #include "ShaderProgram.h"
 
+extern "C" {
+#include "lua.h"
+#include "lauxlib.h"
+#include "lualib.h"
+};
+
 void test_function();
 
 #endif //PEACHTEAENVIRONMENT_PEACHTEA_H

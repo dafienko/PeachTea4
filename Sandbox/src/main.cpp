@@ -25,6 +25,10 @@ static const struct
 
 int main()
 {
+    std::string cmd = "a = 7 + 11";
+    lua_State* L = luaL_newstate();
+    int r = luaL_dostring(L, cmd.c_str());
+
     GLFWwindow* window;
 
     glfwSetErrorCallback(error_callback);
