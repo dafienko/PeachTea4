@@ -11,12 +11,12 @@ Shader::Shader(const std::string filename, GLenum shaderType) {
     char** lines = (char**)calloc(lineStrings.size(), sizeof(char*));
     for (int i = 0; i < lineStrings.size(); i++)
     {
-        std::string lineString = lineStrings[i] + "\n";
+        std::string lineString = lineStrings[i];
         int len = lineString.length();
         char* line = (char*)calloc(len + 1, sizeof(char));
         memset(line, 0, (len + 1) * sizeof(char));
         std::memcpy(line, lineString.c_str(), len * sizeof(char));
-       *(lines + i) = line;
+        lines[i] = line;
     }
 
     shader = glCreateShader(shaderType);

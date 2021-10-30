@@ -37,6 +37,14 @@ void ShaderProgram::bind() {
     glUseProgram(program);
 }
 
-const GLuint ShaderProgram::getProgram() {
+GLint ShaderProgram::getUniform(const std::string& uniformName) {
+    return glGetUniformLocation(getProgram(), uniformName.c_str());
+}
+
+void ShaderProgram::setUniformMatrix(const std::string& uniformName, mat4x4 value) {
+    glUniformMatrix4fv(getUniform(uniformName), 1, GL_FALSE, (const GLfloat*) value);
+}
+
+GLuint ShaderProgram::getProgram() {
     return program;
 }

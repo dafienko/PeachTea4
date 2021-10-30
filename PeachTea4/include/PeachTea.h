@@ -14,13 +14,12 @@
 #include "FileUtil.h"
 #include "Shader.h"
 #include "ShaderProgram.h"
+#include "Mesh.h"
 
-extern "C" {
-#include "lua.h"
-#include "lauxlib.h"
-#include "lualib.h"
-};
+#include "lua.hpp"
 
-void test_function();
+extern ShaderProgram* meshShader;
+
+GLFWwindow* PT_Init();
 
 #endif //PEACHTEAENVIRONMENT_PEACHTEA_H

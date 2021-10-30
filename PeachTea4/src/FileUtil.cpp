@@ -16,7 +16,7 @@ std::vector<std::string> readFileLines(const std::string& filename) {
     std::string line;
     while (std::getline(infile, line))
     {
-        lines.push_back(line);
+        lines.push_back(line + "\n");
     }
 
     return lines;
