@@ -14,9 +14,9 @@ vec4 vertexColors[] = {
 
 int main()
 {
-    GLFWwindow* window = PT_Init();
+    GLFWwindow* window = PT::Init();
 
-    PT_Mesh mesh(3);
+    PT::Mesh mesh(3);
     mesh.setVertices(vertexPositions);
     mesh.setColors(vertexColors);
 

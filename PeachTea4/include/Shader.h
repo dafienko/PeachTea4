@@ -3,13 +3,15 @@
 
 #include <string>
 
-class Shader{
-private:
-    GLuint shader;
-public:
-    Shader(const std::string filename, GLenum shaderType);
-    GLuint getShader();
-};
+namespace PT {
+    class Shader {
+    private:
+        GLuint shader;
+    public:
+        Shader(const std::string filename, GLenum shaderType);
 
+        GLuint getShader();
+    };
+}
 
 #endif //PEACHTEAENVIRONMENT_SHADER_H

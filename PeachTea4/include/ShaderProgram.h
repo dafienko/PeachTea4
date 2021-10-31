@@ -5,19 +5,21 @@
 #include "Shader.h"
 #include "linmath.h"
 
+namespace PT {
+    class ShaderProgram {
+    private:
+        GLuint program;
+    public:
+        ShaderProgram(Shader vertexShader, Shader fragmentShader);
 
-class ShaderProgram{
-private:
-    GLuint program;
-public:
-    ShaderProgram(Shader vertexShader, Shader fragmentShader);
+        GLint getUniform(const std::string &uniformName);
 
-    GLint getUniform(const std::string& uniformName);
-    void setUniformMatrix(const std::string& uniformName, mat4x4 value);
+        void setUniformMatrix(const std::string &uniformName, mat4x4 value);
 
-    void bind();
+        void bind();
 
-    GLuint getProgram();
-};
+        GLuint getProgram();
+    };
+}
 
 #endif //PEACHTEAENVIRONMENT_SHADERPROGRAM_H

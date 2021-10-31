@@ -18,8 +18,10 @@
 
 #include "lua.hpp"
 
-extern ShaderProgram* meshShader;
+namespace PT {
+    extern ShaderProgram *meshShader;
 
-GLFWwindow* PT_Init();
+    GLFWwindow *Init();
+}
 
 #endif //PEACHTEAENVIRONMENT_PEACHTEA_H
