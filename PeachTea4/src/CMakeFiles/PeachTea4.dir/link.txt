@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libPeachTea4.a CMakeFiles/PeachTea4.dir/PeachTea.cpp.o CMakeFiles/PeachTea4.dir/FileUtil.cpp.o CMakeFiles/PeachTea4.dir/Shader.cpp.o CMakeFiles/PeachTea4.dir/ShaderProgram.cpp.o CMakeFiles/PeachTea4.dir/Mesh.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libPeachTea4.a

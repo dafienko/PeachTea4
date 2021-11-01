@@ -5,6 +5,8 @@
 !*.h
 !*.cpp
 
+!*.txt
+
 !*.dll
 !*.lib
 !*.exe
