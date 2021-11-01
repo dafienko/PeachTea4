@@ -23,3 +23,7 @@ target_link_libraries(Sandbox glm)
 target_link_libraries(Sandbox glfw)
 target_link_libraries(Sandbox lua)
 target_link_libraries(Sandbox PeachTea4)
+set_target_properties(Sandbox
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${PeachTeaEnvironment_SOURCE_DIR}/Sandbox/src"
+)
