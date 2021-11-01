@@ -7,6 +7,8 @@
 !*.hpp
 !*.in
 !*.inl
+!*.lua
+!*.glsl
 !*.txt
 CMakeCache.txt
 

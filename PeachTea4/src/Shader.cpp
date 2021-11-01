@@ -1,8 +1,9 @@
+#include <iostream>
+#include <memory>
+#include <cstring>
 #include "glad/glad.h"
 #include "Shader.h"
 #include "FileUtil.h"
-#include <iostream>
-#include <memory>
 
 namespace PT {
     Shader::Shader(const std::string filename, GLenum shaderType) {

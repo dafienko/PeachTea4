@@ -15,6 +15,9 @@ link_directories(
         ${PeachTeaEnvironment_SOURCE_DIR}/lib
 )
 add_executable(Sandbox main.cpp)
+IF (WIN32)
+    target_link_libraries(Sandbox C:/Windows/System32/gdi32.dll)
+ENDIF()
 target_link_libraries(Sandbox glad)
 target_link_libraries(Sandbox glm)
 target_link_libraries(Sandbox glfw)
