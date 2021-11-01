@@ -1,7 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/dafienko/Documents/cpp/PeachTea4
--- GLM: Version 0.9.9.9
--- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
--- Using Cocoa for window creation
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/dafienko/Documents/cpp/PeachTea4
