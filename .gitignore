@@ -4,8 +4,9 @@
 !*.c
 !*.h
 !*.cpp
-
+!*.hpp
 !*.txt
+CMakeCache.txt
 
 !*.dll
 !*.lib
