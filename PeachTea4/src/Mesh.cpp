@@ -8,42 +8,42 @@ namespace PT {
         vbos = (GLuint *) calloc(2, sizeof(GLuint));
         glGenBuffers(2, vbos);
 
-        vertices = (vec3 *) calloc(numVertices, sizeof(vec3));
-        colors = (vec4 *) calloc(numVertices, sizeof(vec4));
+        vertices = (float *) calloc(numVertices, sizeof(float) * 3);
+        colors = (float *) calloc(numVertices, sizeof(float) * 4);
     }
 
-    void Mesh::setVertices(vec3 *vertices) {
+    void Mesh::setVertices(glm::vec3 *vertices) {
         for (int i = 0; i < numVertices; i++) {
-            this->vertices[i][0] = vertices[i][0];
-            this->vertices[i][1] = vertices[i][1];
-            this->vertices[i][2] = vertices[i][2];
+            this->vertices[i * 3 + 0] = vertices[i].x;
+            this->vertices[i * 3 + 1] = vertices[i].y;
+            this->vertices[i * 3 + 2] = vertices[i].z;
         }
 
         glBindBuffer(GL_ARRAY_BUFFER, vbos[0]);
-        glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(vec3), this->vertices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(float) * 3, this->vertices, GL_STATIC_DRAW);
 
         glBindVertexArray(vao);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void *) (0));
         glEnableVertexAttribArray(0);
     }
 
-    void Mesh::setColors(vec4 *colors) {
+    void Mesh::setColors(glm::vec4 *colors) {
         for (int i = 0; i < numVertices; i++) {
-            this->colors[i][0] = colors[i][0];
-            this->colors[i][1] = colors[i][1];
-            this->colors[i][2] = colors[i][2];
-            this->colors[i][3] = colors[i][3];
+            this->colors[i * 4 + 0] = colors[i].x;
+            this->colors[i * 4 + 1] = colors[i].y;
+            this->colors[i * 4 + 2] = colors[i].z;
+            this->colors[i * 4 + 3] = colors[i].w;
         }
 
         glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
-        glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(vec4), this->colors, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(float) * 4, this->colors, GL_STATIC_DRAW);
 
         glBindVertexArray(vao);
         glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void *) (0));
         glEnableVertexAttribArray(1);
     }
 
-    void Mesh::draw(mat4x4 mvp) {
+    void Mesh::draw(glm::mat4x4 mvp) {
         meshShader->bind();
         glBindVertexArray(vao);
         meshShader->setUniformMatrix("MVP", mvp);

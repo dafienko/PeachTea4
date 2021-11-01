@@ -41,8 +41,8 @@ namespace PT {
         return glGetUniformLocation(getProgram(), uniformName.c_str());
     }
 
-    void ShaderProgram::setUniformMatrix(const std::string &uniformName, mat4x4 value) {
-        glUniformMatrix4fv(getUniform(uniformName), 1, GL_FALSE, (const GLfloat *) value);
+    void ShaderProgram::setUniformMatrix(const std::string &uniformName, glm::mat4x4 value) {
+        glUniformMatrix4fv(getUniform(uniformName), 1, GL_FALSE, glm::value_ptr(value));
     }
 
     GLuint ShaderProgram::getProgram() {

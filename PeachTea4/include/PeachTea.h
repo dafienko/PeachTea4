@@ -9,7 +9,7 @@
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
 
-#include "linmath.h"
+#include "ext.hpp"
 
 #include "FileUtil.h"
 #include "Shader.h"

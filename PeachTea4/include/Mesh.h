@@ -2,15 +2,14 @@
 #define PEACHTEAENVIRONMENT_MESH_H
 
 #include "glad/glad.h"
-#include "linmath.h"
 #include "ShaderProgram.h"
 
 namespace PT {
     class Mesh {
     private:
         GLuint vao, *vbos;
-        vec3 *vertices;
-        vec4 *colors;
+        float *vertices;
+        float *colors;
     public:
         const int numVertices;
 
@@ -18,11 +17,11 @@ namespace PT {
 
         ~Mesh();
 
-        void setVertices(vec3 *vertices);
+        void setVertices(glm::vec3 *vertices);
 
-        void setColors(vec4 *colors);
+        void setColors(glm::vec4 *colors);
 
-        void draw(mat4x4 mvp);
+        void draw(glm::mat4x4 mvp);
     };
 }
 

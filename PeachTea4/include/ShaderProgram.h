@@ -3,7 +3,7 @@
 
 #include <glad/glad.h>
 #include "Shader.h"
-#include "linmath.h"
+#include "ext.hpp"
 
 namespace PT {
     class ShaderProgram {
@@ -14,7 +14,7 @@ namespace PT {
 
         GLint getUniform(const std::string &uniformName);
 
-        void setUniformMatrix(const std::string &uniformName, mat4x4 value);
+        void setUniformMatrix(const std::string &uniformName, glm::mat4x4 value);
 
         void bind();
 
