@@ -6,6 +6,7 @@
 !*.cpp
 !*.hpp
 !*.in
+!*.inl
 !*.txt
 CMakeCache.txt
 
