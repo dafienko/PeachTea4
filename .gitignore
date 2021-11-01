@@ -30,3 +30,7 @@ CMakeCache.txt
 !*.ttf
 !*.rc
 !*.ico
+
+.idea/
+.vscode/
+cmake-build-debug/
