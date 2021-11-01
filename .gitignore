@@ -12,10 +12,6 @@
 !*.txt
 CMakeCache.txt
 
-!*.dll
-!*.lib
-!*.exe
-
 !*.sln
 !*.vcxproj
 !*.filters
@@ -34,4 +30,4 @@ CMakeCache.txt
 .idea/
 .vscode/
 cmake-build-debug/
-CMakeFiles/
+**/CMakeFiles/
