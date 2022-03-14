@@ -1,4 +1,7 @@
-for i = 1, 10 do
-    print(i)
+OnUpdate = function(dt)
+
 end
 
+OnRender = function(dt)
+
+end

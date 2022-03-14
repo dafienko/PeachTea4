@@ -1,8 +1,8 @@
 #include "PeachTea.h"
 
 namespace PT {
-    Mesh::Mesh(int numVertices) :
-            numVertices(numVertices) {
+    Mesh::Mesh(int numVertices) : numVertices(numVertices)
+    {
         glGenVertexArrays(1, &vao);
 
         vbos = (GLuint *) calloc(2, sizeof(GLuint));
@@ -10,6 +10,16 @@ namespace PT {
 
         vertices = (float *) calloc(numVertices, sizeof(float) * 3);
         colors = (float *) calloc(numVertices, sizeof(float) * 4);
+    }
+
+    Mesh::Mesh(const std::string &filename) {
+        glGenVertexArrays(1, &vao);
+
+        vbos = (GLuint *) calloc(2, sizeof(GLuint));
+        glGenBuffers(2, vbos);
+
+        float* normals;
+        loadObjFile(filename, numVertices, vertices, normals, colors);
     }
 
     void Mesh::setVertices(glm::vec3 *vertices) {

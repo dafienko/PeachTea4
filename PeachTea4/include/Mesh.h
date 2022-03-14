@@ -10,10 +10,10 @@ namespace PT {
         GLuint vao, *vbos;
         float *vertices;
         float *colors;
+        int numVertices;
     public:
-        const int numVertices;
-
         Mesh(int numVertices);
+        Mesh(const std::string &filename);
 
         ~Mesh();
 
