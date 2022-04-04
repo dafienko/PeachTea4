@@ -73,7 +73,7 @@ namespace std
 	};
 
 	template<typename T, glm::qualifier Q>
-	struct hash<glm::qua<T,Q>>
+	struct hash<glm::qua<T,Q> >
 	{
 		GLM_FUNC_DECL size_t operator()(glm::qua<T, Q> const& q) const;
 	};

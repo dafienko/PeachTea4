@@ -116,9 +116,15 @@ int main()
 
     init_lua();
 
+    ///*
     mesh = new PT::Mesh(3);
     mesh->setVertices(vertexPositions);
     mesh->setColors(vertexColors);
+    //*/
+    float *positions, *normals, *textureCoords;
+    int numIndices, numVertices, *indices;
+    loadObjFile("assets/models/square.obj", numIndices, numVertices, indices, positions, normals, textureCoords);
+    printObjData(numIndices, numVertices, indices, positions, normals, textureCoords);
 
     resize();
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);

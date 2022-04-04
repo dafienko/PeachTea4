@@ -19,7 +19,7 @@ namespace PT {
         glGenBuffers(2, vbos);
 
         float* normals;
-        loadObjFile(filename, numVertices, vertices, normals, colors);
+        //loadObjFile(filename, numVertices, vertices, normals, colors);
     }
 
     void Mesh::setVertices(glm::vec3 *vertices) {
