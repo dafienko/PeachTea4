@@ -123,7 +123,7 @@ void printObjData(int numIndices, int numVertices, int* indices, float* position
         if (i % 3 == 0) {
             std::cout << "\t";
         }
-        std::cout << i << " ";
+        std::cout << *(indices + i) << " ";
         if (i % 3 == 2) {
             std::cout << std::endl;
         }
@@ -140,6 +140,7 @@ void loadObjFile(const std::string& filename, int &numIndices, int &numVertices,
     checkValidFile(infile, filename);
 
     std::string line;
+    int nUniqIndices = 0;
     while(std::getline(infile, line)) {
         // don't process comments
         std::size_t commentIndex = line.find('#');
@@ -164,15 +165,11 @@ void loadObjFile(const std::string& filename, int &numIndices, int &numVertices,
         } else if (elementType == "f") {
             int faceVertexCount = std::min((int)elements.size() - 1, 4);
             int tmpIndices[4];
-            int nUniqIndices = 0;
 
             for (int i = 1; i <= faceVertexCount; i++) {
                 ivec3 indexGroup = parseIndexGroup(elements.at(i));
-                std::cout << indexGroup.x << "/" << indexGroup.y << "/" << indexGroup.z << std::endl;
 
                 if (uniqIndexTable.find(indexGroup) == uniqIndexTable.end()) {
-                    std::cout << "unique\n";
-
                     pushVecAtIndex(uiPosVec, positionsVector, indexGroup.x);
                     if (indexGroup.z >= 0) {
                         pushVecAtIndex(uiNormVec, normalsVector, indexGroup.z);
@@ -181,18 +178,17 @@ void loadObjFile(const std::string& filename, int &numIndices, int &numVertices,
                         pushVecAtIndex(uiTexVec, textureVector, indexGroup.y);
                     }
                     uniqIndexTable[indexGroup] = nUniqIndices++;
-                } else {
-                    std::cout << "reuse\n";
                 }
 
                 tmpIndices[i - 1] = uniqIndexTable[indexGroup];
+                std::cout << uniqIndexTable[indexGroup] << std::endl;
             }
 
             if (faceVertexCount == 3) {
                 uniqIndices.push_back(tmpIndices[0]);
                 uniqIndices.push_back(tmpIndices[1]);
                 uniqIndices.push_back(tmpIndices[2]);
-            } else { // convert quad to two trinagles
+            } else { // convert quad to two triangles
                 uniqIndices.push_back(tmpIndices[0]);
                 uniqIndices.push_back(tmpIndices[1]);
                 uniqIndices.push_back(tmpIndices[2]);

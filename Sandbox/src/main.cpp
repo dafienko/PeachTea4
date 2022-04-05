@@ -116,7 +116,7 @@ int main()
 
     init_lua();
 
-    ///*
+    //*
     mesh = new PT::Mesh(3);
     mesh->setVertices(vertexPositions);
     mesh->setColors(vertexColors);
